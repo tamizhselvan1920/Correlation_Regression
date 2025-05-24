@@ -1,3 +1,8 @@
+# Exp : 03 
+
+# Date : 
+
+
 # Correlation and regression for data analysis
 # Aim : 
 
@@ -15,15 +20,94 @@ Correlation describes the strength of an association between two variables, and 
 
 If y represents the dependent variable and x the independent variable, this relationship is described as the regression of y on x. The relationship can be represented by a simple equation called the regression equation. The regression equation representing how much y changes with any given change of x can be used to construct a regression line on a scatter diagram, and in the simplest case this is assumed to be a straight line.
 
+
+
 # Procedure :
 
 ![image](https://user-images.githubusercontent.com/104613195/168225866-ac8f6610-bdc3-4ac2-a24e-2b24ba08e189.png)
 
+# Name: thamizh selvan R
+# register number: 212222230158
+
 # Program :
 
-![image](https://github.com/ramjan1729/Correlation_Regression/assets/103921593/9eb48cbf-8ca3-4cd9-8440-ff45fd98333e)
+import numpy as np
+
+import math
+
+import matplotlib.pyplot as plt
+
+x=[ int(i) for i in input().split()]
+
+y=[ int(i) for i in input().split()]
+
+N=len(x)
+
+Sx=0
+
+Sy=0
+
+Sxy=0
+
+Sx2=0
+
+Sy2=0
+
+for i in range(0,N):
+
+Sx=Sx+x[i]
+
+Sy=Sy+y[i]
+
+Sxy=Sxy+x[i]*y[i]
+
+Sx2=Sx2+x[i]**2
+
+Sy2=Sy2+y[i]**2
+
+r=(N*Sxy-Sx*Sy)/(math.sqrt(N*Sx2-Sx**2)*math.sqrt(N*Sy2-Sy**2))
+
+print("The Correlation coefficient is %0.3f"%r)
+
+Preview Code Blame 69 lines (55 loc) · 2.23 KB Raw
+
+Product Solutions Resources Open Source Enterprise Pricing Sign in Sign up
+
+The Correlation and regression for data analysis of objects from feeder using probability distribution are calculated.
+
+byx=(N*Sxy-Sx*Sy)/(N*Sx2-Sx**2)
+
+xmean=Sx/N
+
+ymean=Sy/N
+
+print("The Regression line Y on X is ::: y = %0.3f + %0.3f (x-%0.3f)"%(ymean,byx,xmean))
+
+plt.scatter(x,y)
+
+def Reg(x):
+
+return ymean + byx*(x-xmean)
+
+x=np.linspace(20,80,51)
+
+y1=Reg(x)
+
+plt.plot(x,y1,'r')
+
+plt.xlabel('x-data')
+
+plt.ylabel('y-data')
+
+plt.legend(['Regression Line','Data points'])
+
+plt.show()
 
 
-# Result
+# Output:
+![395736315-7deb88eb-5495-4a10-86a9-1856f2e47d27](https://github.com/user-attachments/assets/9d211946-fde9-454c-9d35-a0e562ea72cf)
 
-# Output 
+
+# Result:
+The Correlation and regression for data analysis of objects from feeder using probability distribution are calculated.
+
